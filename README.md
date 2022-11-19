@@ -26,9 +26,23 @@ Student
 <img src="https://random-memer.herokuapp.com/" width="324px"/>
 </p>
 
----
-[![](https://visitcount.itsvg.in/api?id=theriturajps&icon=2&color=12)](https://visitcount.itsvg.in)
+<div align="center">
+<img src="https://komarev.com/ghpvc/?username=theriturajps&&style=flat-square" align="center" />
+</div>  
 
 
 ## 💰 You can help me by Donating
-[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/riturajps)
+<div align="center">
+            <a href="https://paypal.me/riturajps" target="_blank" style="display: inline-block;">
+                <img
+                    src="https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square" 
+                    align="center"
+                />
+            </a>
+            <a href="https://buymeacoffee.com/riturajps" target="_blank" style="display: inline-block;">
+                <img
+                    src="https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-orange.svg?style=flat-square" 
+                    align="center"
+                />
+            </a>
+</div>
