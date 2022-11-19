@@ -1,5 +1,9 @@
 # 💫 About Me:
-Student
+<p align="center">
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=21B024&center=true&vCenter=true&multiline=true&width=435&height=60&lines=RituRajPS;Ritu+Raj+Pratap+Singh" alt="Typing SVG" /></a>
+  </br></br></br>
+<img src="https://komarev.com/ghpvc/?username=theriturajps&&style=flat-square" align="center" />
+</p>
 
 
 ## 🌐 Socials:
@@ -24,12 +28,7 @@ Student
 ### Dev Meme
 <p align="center">
 <img src="https://random-memer.herokuapp.com/" width="324px"/>
-</p>
-
-<div align="center">
-<img src="https://komarev.com/ghpvc/?username=theriturajps&&style=flat-square" align="center" />
-</div>  
-
+</p> 
 
 ## 💰 You can help me by Donating
 <div align="center">
