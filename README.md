@@ -25,11 +25,6 @@
 </p>
 
 
-### Dev Meme
-<p align="center">
-<img src="https://random-memer.herokuapp.com/" width="324px"/>
-</p> 
-
 ## 💰 You can help me by Donating
 <div align="center">
             <a href="https://paypal.me/riturajps" target="_blank" style="display: inline-block;">
