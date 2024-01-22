@@ -1,4 +1,9 @@
-# 💫 About Me:
+<div align="center">
+  
+# <img src="https://user-images.githubusercontent.com/74038190/213844263-a8897a51-32f4-4b3b-b5c2-e1528b89f6f3.png" width="50px" /> &nbsp; Welcome To Profile &nbsp; <img src="https://user-images.githubusercontent.com/74038190/213844263-a8897a51-32f4-4b3b-b5c2-e1528b89f6f3.png" width="50px" />
+<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" alt="Handshake" width="120" />
+</div>
+
 <p align="center">
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=21B024&center=true&vCenter=true&multiline=true&width=435&height=60&lines=RituRajPS;Ritu+Raj+Pratap+Singh" alt="Typing SVG" /></a>
   </br></br></br>
