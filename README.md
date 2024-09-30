@@ -48,9 +48,8 @@
 <div align="center">
   
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Pinching%20Hand.png" alt="Pinching Hand" width="50" /> &nbsp; GitHub Trophies &nbsp; <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Pinching%20Hand.png" alt="Pinching Hand" width="50" />
-<p align="center">
-  <img src ="https://github-profile-trophy.vercel.app/?username=theriturajps&theme=discord&no-frame=false&no-bg=true&margin-w=4">
-</p>
+
+<p align="center"> <a href="https://github.com/theriturajps"><img src="https://github-profile-trophy.vercel.app/?username=theriturajps" alt="theriturajps" /></a> </p>
 </div>
 
 ### Thanks for visiting !&nbsp; <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Partying%20Face.png" alt="Partying Face" width="50"/>
