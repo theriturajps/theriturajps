@@ -103,33 +103,6 @@
 
 </div>
 
-## Featured Projects
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3 align="center">Project 1</h3>
-      <p align="center">
-        <a href="https://github.com/theriturajps/project1" target="_blank">
-          <img src="https://img.shields.io/badge/Code-Live_Preview-blue?style=for-the-badge&logo=github">
-        </a>
-      </p>
-      <p><strong>Tech Stack:</strong> JavaScript, React, Node.js</p>
-      <p>Description of your amazing project goes here</p>
-    </td>
-    <td width="50%">
-      <h3 align="center">Project 2</h3>
-      <p align="center">
-        <a href="https://github.com/theriturajps/project2" target="_blank">
-          <img src="https://img.shields.io/badge/Code-Live_Preview-blue?style=for-the-badge&logo=github">
-        </a>
-      </p>
-      <p><strong>Tech Stack:</strong> Python, Django, PostgreSQL</p>
-      <p>Description of your amazing project goes here</p>
-    </td>
-  </tr>
-</table>
-
 <div align="center">
 
 ## Let's Connect
