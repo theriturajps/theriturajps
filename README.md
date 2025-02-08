@@ -100,6 +100,24 @@
   <img src="https://github-profile-trophy.vercel.app/?username=theriturajps&theme=darkhub&row=1&column=8" />
 </div>
 
+## Featured Repositories
+
+[![Quotes-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Quotes-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Quotes-API)
+[![Sniptix](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Sniptix&show_icons=true&theme=transparent)](https://github.com/theriturajps/Sniptix)
+[![Advanced-Web-Scraper](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Advanced-Web-Scraper&show_icons=true&theme=transparent)](https://github.com/theriturajps/Advanced-Web-Scraper)
+[![ToolDock](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ToolDock&show_icons=true&theme=transparent)](https://github.com/theriturajps/ToolDock)
+[![npm-package-search](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=npm-package-search&show_icons=true&theme=transparent)](https://github.com/theriturajps/npm-package-search)
+[![Seal-Note](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Seal-Note&show_icons=true&theme=transparent)](https://github.com/theriturajps/Seal-Note)
+[![advanced-cors-proxy](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=advanced-cors-proxy&show_icons=true&theme=transparent)](https://github.com/theriturajps/advanced-cors-proxy)
+[![ArcTorrent](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ArcTorrent&show_icons=true&theme=transparent)](https://github.com/theriturajps/ArcTorrent)
+[![SVG](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=SVG&show_icons=true&theme=transparent)](https://github.com/theriturajps/SVG)
+[![Auto-Filter-Inline-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Auto-Filter-Inline-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/Auto-Filter-Inline-Bot)
+[![ThisIsNotRat](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ThisIsNotRat&show_icons=true&theme=transparent)](https://github.com/theriturajps/ThisIsNotRat)
+[![JS-FileStore-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=JS-FileStore-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/JS-FileStore-Bot)
+[![Color-Picker-Selector](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Color-Picker-Selector&show_icons=true&theme=transparent)](https://github.com/theriturajps/Color-Picker-Selector)
+[![Torrent-Search-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Torrent-Search-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Torrent-Search-API)
+[![gsc-url-indexer](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=gsc-url-indexer&show_icons=true&theme=transparent)](https://github.com/theriturajps/gsc-url-indexer)
+[![locly](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=locly&show_icons=true&theme=transparent)](https://github.com/theriturajps/locly)
 
 </div>
 
