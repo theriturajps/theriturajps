@@ -1,6 +1,6 @@
 <div align="center">
   
-# Ritu Raj | Developer
+# Ritu Raj Pratap Singh
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=28&pause=1000&color=3178C6&center=true&vCenter=true&random=false&width=600&lines=Full+Stack+Developer;Tech+Enthusiast;Open+Source+Contributor)](https://github.com/theriturajps)
 
