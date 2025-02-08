@@ -20,8 +20,6 @@
 [![Updating](https://img.shields.io/badge/status-updating-brightgreen.svg)](https://github.com/theriturajps)
 [![thanks-for-visiting](https://visitor-badge.laobi.icu/badge?page_id=theriturajps.theriturajps)](#thanks-for-visiting)
 
-
-
 </div>
 
 ## About Me
@@ -102,6 +100,8 @@
 
 ## Featured Repositories
 
+[![Torrent-Search-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Torrent-Search-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Torrent-Search-API)
+[![JS-FileStore-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=JS-FileStore-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/JS-FileStore-Bot)
 [![Quotes-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Quotes-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Quotes-API)
 [![Sniptix](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Sniptix&show_icons=true&theme=transparent)](https://github.com/theriturajps/Sniptix)
 [![Advanced-Web-Scraper](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Advanced-Web-Scraper&show_icons=true&theme=transparent)](https://github.com/theriturajps/Advanced-Web-Scraper)
@@ -113,9 +113,7 @@
 [![SVG](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=SVG&show_icons=true&theme=transparent)](https://github.com/theriturajps/SVG)
 [![Auto-Filter-Inline-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Auto-Filter-Inline-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/Auto-Filter-Inline-Bot)
 [![ThisIsNotRat](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ThisIsNotRat&show_icons=true&theme=transparent)](https://github.com/theriturajps/ThisIsNotRat)
-[![JS-FileStore-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=JS-FileStore-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/JS-FileStore-Bot)
 [![Color-Picker-Selector](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Color-Picker-Selector&show_icons=true&theme=transparent)](https://github.com/theriturajps/Color-Picker-Selector)
-[![Torrent-Search-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Torrent-Search-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Torrent-Search-API)
 [![gsc-url-indexer](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=gsc-url-indexer&show_icons=true&theme=transparent)](https://github.com/theriturajps/gsc-url-indexer)
 [![locly](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=locly&show_icons=true&theme=transparent)](https://github.com/theriturajps/locly)
 
