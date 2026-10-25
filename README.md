@@ -62,11 +62,11 @@
 - 🍴 **83** forks
 - 👥 **45** followers
 - 🗓️ On GitHub since **2022**
-- 📈 **6,709** contributions in the last year
-- 🔨 **6,097** commits · **0** PRs · **0** issues · **0** reviews
+- 📈 **6,713** contributions in the last year
+- 🔨 **6,101** commits · **0** PRs · **0** issues · **0** reviews
 - 🔥 **365** day streak (longest **365**)
 
-<sub>Updated 25 Oct 2026, 04:44 UTC</sub>
+<sub>Updated 25 Oct 2026, 04:58 UTC</sub>
 <!-- STATS:END -->
 
 <!-- ACTIVITY:START -->
@@ -81,21 +81,14 @@
 <!-- LANGS:START -->
 ## 💻 Top Languages
 
-```text
-Batchfile   ████░░░░░░░░░░░   26.1%
-JavaScript  ████░░░░░░░░░░░   25.5%
-HTML        ███░░░░░░░░░░░░   20.0%
-CSS         █░░░░░░░░░░░░░░    9.7%
-Python      █░░░░░░░░░░░░░░    7.1%
-Astro       █░░░░░░░░░░░░░░    3.9%
-```
+![Top Languages](./top-languages.svg)
 <!-- LANGS:END -->
 
 <!-- REPOS:START -->
 ## 🚀 Recently Updated
 
-- **[proxy-list](https://github.com/theriturajps/proxy-list)** · ⭐ 13 · Python<br>Automatically updated repository of free public proxies. Hourly refreshed HTTP/HTTPS prox…
 - **[uptime-pinger](https://github.com/theriturajps/uptime-pinger)** · JavaScript<br>Free uptime monitor using GitHub Actions. Pings endpoints on custom schedules and shows l…
+- **[proxy-list](https://github.com/theriturajps/proxy-list)** · ⭐ 13 · Python<br>Automatically updated repository of free public proxies. Hourly refreshed HTTP/HTTPS prox…
 - **[MS-Office-2022](https://github.com/theriturajps/MS-Office-2022)** · Batchfile
 - **[Cloudflare-Tunnel](https://github.com/theriturajps/Cloudflare-Tunnel)**<br>Access your localhost from anywhere in the world using Cloudflare Tunnel — no port forwar…
 - **[private-chat](https://github.com/theriturajps/private-chat)** · ⭐ 1 · HTML
