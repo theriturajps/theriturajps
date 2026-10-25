@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+      width="760"
+      height="294"
+      viewBox="0 0 760 294">
+    <rect width="100%" height="100%" rx="10" fill="#0D1117"/>
+    <text x="18" y="25" fill="#E6EDF3" font-size="14" font-weight="600">Most Used Languages</text>
+    <text x="18" y="63" fill="#E6EDF3" font-size="13">Batchfile</text>
+<rect x="190" y="48" width="430" height="12" rx="6" fill="#21262D"/>
+<rect x="190" y="48" width="112.04" height="12" rx="6" fill="#3572A5"/>
+<text x="735" y="59" text-anchor="end" fill="#9CA3AF" font-size="12">26.1%</text>
+<text x="18" y="101" fill="#E6EDF3" font-size="13">JavaScript</text>
+<rect x="190" y="86" width="430" height="12" rx="6" fill="#21262D"/>
+<rect x="190" y="86" width="110.51" height="12" rx="6" fill="#F1E05A"/>
+<text x="735" y="97" text-anchor="end" fill="#9CA3AF" font-size="12">25.7%</text>
+<text x="18" y="139" fill="#E6EDF3" font-size="13">HTML</text>
+<rect x="190" y="124" width="430" height="12" rx="6" fill="#21262D"/>
+<rect x="190" y="124" width="85.93" height="12" rx="6" fill="#E34C26"/>
+<text x="735" y="135" text-anchor="end" fill="#9CA3AF" font-size="12">20.0%</text>
+<text x="18" y="177" fill="#E6EDF3" font-size="13">CSS</text>
+<rect x="190" y="162" width="430" height="12" rx="6" fill="#21262D"/>
+<rect x="190" y="162" width="41.64" height="12" rx="6" fill="#563D7C"/>
+<text x="735" y="173" text-anchor="end" fill="#9CA3AF" font-size="12">9.7%</text>
+<text x="18" y="215" fill="#E6EDF3" font-size="13">Python</text>
+<rect x="190" y="200" width="430" height="12" rx="6" fill="#21262D"/>
+<rect x="190" y="200" width="30.34" height="12" rx="6" fill="#3178C6"/>
+<text x="735" y="211" text-anchor="end" fill="#9CA3AF" font-size="12">7.1%</text>
+<text x="18" y="253" fill="#E6EDF3" font-size="13">Astro</text>
+<rect x="190" y="238" width="430" height="12" rx="6" fill="#21262D"/>
+<rect x="190" y="238" width="16.64" height="12" rx="6" fill="#DA5B0B"/>
+<text x="735" y="249" text-anchor="end" fill="#9CA3AF" font-size="12">3.9%</text>
+  </svg>
