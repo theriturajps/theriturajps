@@ -81,8 +81,8 @@
 
 ## 📫 Let's Connect
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat)](https://www.linkedin.com/in/iamriturajps)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat)](mailto:riturajps@inoob.in)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=flat)](https://www.linkedin.com/in/iamriturajps)
+[![Email](https://img.shields.io/badge/Email-000000?style=flat)](mailto:riturajps@inoob.in)
 [![Portfolio](https://img.shields.io/badge/Instagram-000000?style=flat)](https://www.instagram.com/riturajps)
 
 <p align="center"><i>Always curious. Always learning. Always shipping. 🔍</i></p>
