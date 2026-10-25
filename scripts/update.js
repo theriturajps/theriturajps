@@ -592,7 +592,7 @@ if (langSum > 0) {
       height="${height}"
       viewBox="0 0 ${width} ${height}">
     <rect width="100%" height="100%" rx="10" fill="#0D1117"/>
-    <text x="18" y="25" fill="#E6EDF3" font-size="14" font-weight="600">Most Used Languages</text>
+    <text x="18" y="25" fill="#E6EDF3" font-size="14" font-weight="600">Most Used Languages by Ritu Raj.</text>
     ${rows}
   </svg>`.trim();
 
