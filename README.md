@@ -55,21 +55,54 @@
 - [ ] Cloud & big data (Spark, BigQuery)
 
 <!-- STATS:START -->
+## 📊 GitHub Stats
+
+- 📦 **184** public repos
+- ⭐ **176** stars earned
+- 🍴 **83** forks
+- 👥 **45** followers
+- 🗓️ On GitHub since **2022**
+- 📈 **6,715** contributions in the last year
+- 🔨 **6,103** commits · **0** PRs · **0** issues · **0** reviews
+- 🔥 **365** day streak (longest **365**)
+
+<sub>Updated 25 Oct 2026, 04:59 UTC</sub>
 <!-- STATS:END -->
 
 <!-- ACTIVITY:START -->
+## Activity Heatmap
+
+![Colorful GitHub Contribution Heatmap](./activity-heatmap.svg)
+
+- Most active day: **Sun**
+- Best day: **50 contributions** on 13 Dec 2025
 <!-- ACTIVITY:END -->
 
 <!-- LANGS:START -->
+## 💻 Top Languages
+
+![Top Languages](./top-languages.svg)
 <!-- LANGS:END -->
 
 <!-- REPOS:START -->
+## 🚀 Recently Updated
+
+- **[uptime-pinger](https://github.com/theriturajps/uptime-pinger)** · JavaScript<br>Free uptime monitor using GitHub Actions. Pings endpoints on custom schedules and shows l…
+- **[proxy-list](https://github.com/theriturajps/proxy-list)** · ⭐ 13 · Python<br>Automatically updated repository of free public proxies. Hourly refreshed HTTP/HTTPS prox…
+- **[MS-Office-2022](https://github.com/theriturajps/MS-Office-2022)** · Batchfile
+- **[Cloudflare-Tunnel](https://github.com/theriturajps/Cloudflare-Tunnel)**<br>Access your localhost from anywhere in the world using Cloudflare Tunnel — no port forwar…
+- **[private-chat](https://github.com/theriturajps/private-chat)** · ⭐ 1 · HTML
 <!-- REPOS:END -->
 
 <!-- FEED:START -->
+## ⚡ Recent Activity
+
+- ⭐ Starred [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) · 6 days ago
+- ⭐ Starred [morluto/rea](https://github.com/morluto/rea) · 7 days ago
 <!-- FEED:END -->
 
 <!-- POSTS:START -->
+
 <!-- POSTS:END -->
 
 ## 📫 Let's Connect
