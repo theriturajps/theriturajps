@@ -83,12 +83,13 @@ async function getContributions() {
       headers: { ...headers, "Content-Type": "application/json" },
       signal: AbortSignal.timeout(20_000),
       body: JSON.stringify({
-        query: `query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}`,
+        query: `query($login:String!){user(login:$login){contributionsCollection{totalCommitContributions totalPullRequestContributions totalIssueContributions totalPullRequestReviewContributions contributionCalendar{totalContributions weeks{contributionDays{date contributionCount weekday}}}}}}`,
         variables: { login: USER },
       }),
     });
     const json = await res.json();
-    const cal = json?.data?.user?.contributionsCollection?.contributionCalendar;
+    const cc = json?.data?.user?.contributionsCollection;
+    const cal = cc?.contributionCalendar;
     if (!cal) throw new Error(json?.errors?.[0]?.message ?? `HTTP ${res.status}`);
 
     const days = cal.weeks.flatMap((w) => w.contributionDays).sort((a, b) => a.date.localeCompare(b.date));
@@ -101,7 +102,17 @@ async function getContributions() {
     if (i >= 0 && days[i].contributionCount === 0) i--; // today isn't over yet
     let current = 0;
     while (i >= 0 && days[i].contributionCount > 0) { current++; i--; }
-    return { total: cal.totalContributions, current, longest };
+    return {
+      total: cal.totalContributions,
+      current,
+      longest,
+      commits: cc.totalCommitContributions ?? 0,
+      prs: cc.totalPullRequestContributions ?? 0,
+      issues: cc.totalIssueContributions ?? 0,
+      reviews: cc.totalPullRequestReviewContributions ?? 0,
+      weeks: cal.weeks,
+      days,
+    };
   } catch (e) {
     console.warn(`Contribution data skipped: ${e.message}`);
     return null;
@@ -134,13 +145,135 @@ async function getPosts() {
   }
 }
 
+/* ---------- recent activity feed (public events) ---------- */
+const ago = (iso) => {
+  const mins = Math.max(1, Math.round((Date.now() - new Date(iso).getTime()) / 60_000));
+  if (mins < 60) return `${mins} min ago`;
+  const h = Math.round(mins / 60);
+  if (h < 24) return `${h} h ago`;
+  const d = Math.round(h / 24);
+  return d === 1 ? "yesterday" : `${d} days ago`;
+};
+
+async function getFeed() {
+  const limit = config.feedItems ?? 5;
+  const hidden = new Set([`${USER}/${USER}`.toLowerCase(), ...(config.hideFromFeed ?? []).map((n) => `${USER}/${n}`.toLowerCase())]);
+  try {
+    const events = await rest(`/users/${USER}/events/public?per_page=100`);
+    const seen = new Set();
+    const items = [];
+    for (const ev of events) {
+      const repo = ev.repo?.name;
+      if (!repo || hidden.has(repo.toLowerCase())) continue;
+      const p = ev.payload ?? {};
+      const link = `[${repo.startsWith(`${USER}/`) ? repo.slice(USER.length + 1) : repo}](https://github.com/${repo})`;
+      let key, text;
+      switch (ev.type) {
+        case "PushEvent": {
+          const n = p.size ?? p.commits?.length;
+          key = `push:${repo}`;
+          text = `⬆️ Pushed ${n ? `${n} commit${n > 1 ? "s" : ""}` : "changes"} to ${link}`;
+          break;
+        }
+        case "PullRequestEvent": {
+          const merged = p.action === "closed" && p.pull_request?.merged;
+          const verb = merged ? "Merged" : p.action === "opened" ? "Opened" : p.action === "closed" ? "Closed" : null;
+          if (!verb) continue;
+          key = `pr:${repo}:${p.number}:${verb}`;
+          text = `🔀 ${verb} PR #${p.number} in ${link}`;
+          break;
+        }
+        case "PullRequestReviewEvent":
+          key = `review:${repo}:${p.pull_request?.number}`;
+          text = `👀 Reviewed PR #${p.pull_request?.number} in ${link}`;
+          break;
+        case "IssuesEvent":
+          if (p.action !== "opened") continue;
+          key = `issue:${repo}:${p.issue?.number}`;
+          text = `🐛 Opened issue #${p.issue?.number} in ${link}`;
+          break;
+        case "IssueCommentEvent":
+          key = `comment:${repo}:${p.issue?.number}`;
+          text = `💬 Commented on #${p.issue?.number} in ${link}`;
+          break;
+        case "CreateEvent":
+          key = `create:${repo}:${p.ref_type}:${p.ref}`;
+          text = p.ref_type === "repository" ? `🆕 Created ${link}` : `🌿 Created ${p.ref_type} \`${clean(p.ref, 30)}\` in ${link}`;
+          break;
+        case "ForkEvent":
+          key = `fork:${repo}`;
+          text = `🍴 Forked ${link}`;
+          break;
+        case "WatchEvent":
+          key = `star:${repo}`;
+          text = `⭐ Starred ${link}`;
+          break;
+        case "ReleaseEvent":
+          key = `release:${repo}:${p.release?.tag_name}`;
+          text = `🏷️ Released ${clean(p.release?.tag_name, 30)} of ${link}`;
+          break;
+        default:
+          continue;
+      }
+      if (seen.has(key)) continue; // one line per repo/action, so busy repos don't flood the list
+      seen.add(key);
+      items.push(`- ${text} · ${ago(ev.created_at)}`);
+      if (items.length >= limit) break;
+    }
+    return items;
+  } catch (e) {
+    console.warn(`Activity feed skipped: ${e.message}`);
+    return [];
+  }
+}
+
+/* ---------- contribution heatmap (text, mobile friendly) ---------- */
+function buildActivity(c) {
+  if (!c?.days?.length || c.total === 0) return "";
+  const N = config.heatmapWeeks ?? 12;
+  const weeks = c.weeks.slice(-N);
+  const counts = weeks.flatMap((w) => w.contributionDays.map((d) => d.contributionCount));
+  const max = Math.max(1, ...counts);
+  const LEVELS = ["·", "░", "▒", "▓", "█"];
+  const level = (n) => (n === 0 ? 0 : Math.min(4, Math.ceil((n / max) * 4)));
+  const short = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const full = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  const rows = short.map((name, wd) => {
+    const cells = weeks.map((w) => {
+      const d = w.contributionDays.find((x) => x.weekday === wd);
+      return d ? LEVELS[level(d.contributionCount)] : " ";
+    });
+    return `${name}  ${cells.join(" ")}`.trimEnd();
+  });
+
+  const byDay = Array(7).fill(0);
+  for (const d of c.days) byDay[d.weekday] += d.contributionCount;
+  const topDay = byDay.indexOf(Math.max(...byDay));
+  const best = c.days.reduce((a, b) => (b.contributionCount > a.contributionCount ? b : a), c.days[0]);
+
+  return [
+    `## 📅 Activity (last ${weeks.length} weeks)`,
+    "",
+    "```text",
+    ...rows,
+    "",
+    `Less ${LEVELS.join(" ")} More`,
+    "```",
+    "",
+    `- 🗓️ Most active day: **${full[topDay]}**`,
+    `- 💥 Best day: **${best.contributionCount}** contributions on ${dayFmt(new Date(best.date))}`,
+  ].join("\n");
+}
+
 /* ---------- build sections ---------- */
 const [profile, repos] = await Promise.all([rest(`/users/${USER}`), getRepos()]);
 const own = repos.filter((r) => !r.fork && !config.hideRepos.includes(r.name));
-const [langTotals, contrib, posts] = await Promise.all([
+const [langTotals, contrib, posts, feed] = await Promise.all([
   getLanguages(own),
   getContributions(),
   getPosts(),
+  getFeed(),
 ]);
 
 // Stats
@@ -156,9 +289,11 @@ const stats = [
   `- 🍴 **${num(forks)}** forks`,
   `- 👥 **${num(profile.followers)}** followers`,
 ];
+if (profile.created_at) stats.push(`- 🗓️ On GitHub since **${new Date(profile.created_at).getUTCFullYear()}**`);
 if (contrib) {
   stats.push(
     `- 📈 **${num(contrib.total)}** contributions in the last year`,
+    `- 🔨 **${num(contrib.commits)}** commits · **${num(contrib.prs)}** PRs · **${num(contrib.issues)}** issues · **${num(contrib.reviews)}** reviews`,
     `- 🔥 **${contrib.current}** day streak (longest **${contrib.longest}**)`
   );
 }
@@ -195,6 +330,9 @@ if (recent.length) {
   repoSection = ["## 🚀 Recently Updated", "", ...items].join("\n");
 }
 
+// Activity feed
+const feedSection = feed.length ? ["## ⚡ Recent Activity", "", ...feed].join("\n") : "";
+
 // Posts
 const postSection = posts.length
   ? ["## ✍️ Latest Posts", "", ...posts.map((p) => `- [${clean(p.title, 80)}](${p.link})${p.date ? ` · ${p.date}` : ""}`)].join("\n")
@@ -203,8 +341,10 @@ const postSection = posts.length
 /* ---------- write README ---------- */
 let md = fs.readFileSync(README, "utf8");
 md = setSection(md, "STATS", stats.join("\n"));
+md = setSection(md, "ACTIVITY", buildActivity(contrib));
 md = setSection(md, "LANGS", langSection);
 md = setSection(md, "REPOS", repoSection);
+md = setSection(md, "FEED", feedSection);
 md = setSection(md, "POSTS", postSection);
 fs.writeFileSync(README, md);
-console.log(`Updated README for ${USER}: ${own.length} repos, ${langs.length} languages, streak ${contrib ? "ok" : "n/a"}, ${posts.length} posts`);
+console.log(`Updated README for ${USER}: ${own.length} repos, ${langs.length} languages, streak ${contrib ? "ok" : "n/a"}, ${posts.length} posts, ${feed.length} feed items`);
