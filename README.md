@@ -1,153 +1,88 @@
-<div align="center">
-  
-# Ritu Raj Pratap Singh
-
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=28&pause=1000&color=3178C6&center=true&vCenter=true&random=false&width=600&lines=Backend+Developer;Tech+Enthusiast;Open+Source+Contributor)](https://github.com/theriturajps)
-
-[<img src="https://img.shields.io/badge/-Portfolio-3178C6?style=for-the-badge&logo=web&logoColor=white" />](https://go.exonoob.in/profile)
-[<img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white" />](https://twitter.com/riturajps)
-[<img src="https://img.shields.io/badge/Telegram-0077B5?style=for-the-badge&logo=telegram&logoColor=white" />](https://telegram.me/riturajps)
-[<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />](https://instagram.com/riturajps)
-
-</div>
-
-<div align="center">
-  
-[![GitHub followers](https://img.shields.io/github/followers/theriturajps?label=Follow&style=social)](https://github.com/theriturajps)
-[![Profile Views](https://komarev.com/ghpvc/?username=theriturajps&label=Profile%20views&color=0e75b6&style=flat)](https://github.com/theriturajps)
-[![LeetCode](https://img.shields.io/badge/dynamic/json?style=flat&labelColor=black&color=%23ffa116&label=Solved&query=solvedOverTotal&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Ftheriturajps&logo=leetcode&logoColor=yellow)](https://leetcode.com/theriturajps/)
-
-[![Updating](https://img.shields.io/badge/status-updating-brightgreen.svg)](https://github.com/theriturajps)
-[![thanks-for-visiting](https://visitor-badge.laobi.icu/badge?page_id=theriturajps.theriturajps)](#thanks-for-visiting)
-
-</div>
-
-## About Me
-
-> Software Developer with a passion for creating elegant solutions to complex problems. I specialize in full-stack development and have a strong foundation in modern web technologies.
-
-- 🔭 Currently working on **Full Stack Web Applications**
-- 🌱 Learning **Cloud Architecture** and **System Design**
-- 👯 Open to collaborate on **Open Source Projects**
-- 💬 Ask me about **Web Development**, **JavaScript**, and **DSA**
-
-<div align="center">
-  
-## Technical Expertise
-
-</div>
-
-<table align="center">
-  <tr>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="JavaScript" width="48" height="48" />
-      <br>JavaScript
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/ts-icon.svg" alt="JavaScript" width="48" height="48" />
-      <br>TypeScript
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="Python" width="48" height="48" />
-      <br>REST
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" width="48" height="48" />
-      <br>Python
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/cpp-icon.svg" alt="C++" width="48" height="48" />
-      <br>C++
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="MySQL" width="48" height="48" />
-      <br>MySQL
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/github-icon.svg" alt="GitHub" width="48" height="48" />
-      <br>GitHub
-    </td>
-    <td align="center" width="96">
-      <img src="https://techstack-generator.vercel.app/aws-icon.svg" alt="AWS" width="48" height="48" />
-      <br>AWS
-    </td>
-  </tr>
-</table>
-
-<div align="center">
-  
-## Development Tools & Platforms
-
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
-
-## GitHub Analytics
+<h1 align="center">Hi 👋, I'm Ritu Raj.</h1>
+<h3 align="center">Data Analyst 📊 · Backend Developer ⚙️ · Aspiring Data Scientist & Data Engineer 🚀</h3>
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=theriturajps&show_icons=true&theme=transparent&hide_border=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=theriturajps&layout=compact&langs_count=8&theme=transparent&hide_border=true"/>
+  I turn messy data into clear answers and build the APIs and services around it, while growing into the pipelines and models behind it.
 </p>
-
-<p align="center">
-  <img src="https://nirzak-streak-stats.vercel.app?user=theriturajps&theme=transparent&hide_border=true" />
-</p>
-
-## Contribution Graph
-
-[![Ritu's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=theriturajps&theme=tokyo-night&hide_border=true&bg_color=transparent)](https://github.com/theriturajps)
-
-
-## GitHub Trophies
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=theriturajps&theme=darkhub&row=1&column=8" />
-</div>
-
-## Featured Repositories
-
-[![ArcTorrent](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ArcTorrent&show_icons=true&theme=transparent)](https://github.com/theriturajps/ArcTorrent)
-[![Quotes-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Quotes-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Quotes-API)
-[![Torrent-Search-API](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Torrent-Search-API&show_icons=true&theme=transparent)](https://github.com/theriturajps/Torrent-Search-API)
-[![JS-FileStore-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=JS-FileStore-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/JS-FileStore-Bot)
-[![Sniptix](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Sniptix&show_icons=true&theme=transparent)](https://github.com/theriturajps/Sniptix)
-[![Advanced-Web-Scraper](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Advanced-Web-Scraper&show_icons=true&theme=transparent)](https://github.com/theriturajps/Advanced-Web-Scraper)
-[![ToolDock](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ToolDock&show_icons=true&theme=transparent)](https://github.com/theriturajps/ToolDock)
-[![npm-package-search](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=npm-package-search&show_icons=true&theme=transparent)](https://github.com/theriturajps/npm-package-search)
-[![Seal-Note](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Seal-Note&show_icons=true&theme=transparent)](https://github.com/theriturajps/Seal-Note)
-[![advanced-cors-proxy](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=advanced-cors-proxy&show_icons=true&theme=transparent)](https://github.com/theriturajps/advanced-cors-proxy)
-[![SVG](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=SVG&show_icons=true&theme=transparent)](https://github.com/theriturajps/SVG)
-[![Auto-Filter-Inline-Bot](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Auto-Filter-Inline-Bot&show_icons=true&theme=transparent)](https://github.com/theriturajps/Auto-Filter-Inline-Bot)
-[![ThisIsNotRat](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=ThisIsNotRat&show_icons=true&theme=transparent)](https://github.com/theriturajps/ThisIsNotRat)
-[![Color-Picker-Selector](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=Color-Picker-Selector&show_icons=true&theme=transparent)](https://github.com/theriturajps/Color-Picker-Selector)
-[![gsc-url-indexer](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=gsc-url-indexer&show_icons=true&theme=transparent)](https://github.com/theriturajps/gsc-url-indexer)
-[![locly](https://github-readme-stats.vercel.app/api/pin/?username=theriturajps&repo=locly&show_icons=true&theme=transparent)](https://github.com/theriturajps/locly)
-
-</div>
-
-<div align="center">
-
-## Let's Connect
-
-[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://linkedin.com/in/riturajps)
-[<img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=x&logoColor=white" />](https://twitter.com/riturajps)
-[<img src="https://img.shields.io/badge/Telegram-0077B5?style=for-the-badge&logo=telegram&logoColor=white" />](https://telegram.me/riturajps)
-[<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />](https://instagram.com/riturajps)
 
 ---
 
-[**Mail Me**](mailto:iamriturajps@gmail.com) | [**Visit Portfolio**](https://go.exonoob.in/profile)
+## 👨‍💻 About Me
 
-![Profile Views](https://komarev.com/ghpvc/?username=theriturajps&color=brightgreen)
+- 📊 I analyse data to find patterns, build dashboards and support decisions
+- ⚙️ I build backend services: REST APIs, databases, automation and deployments
+- 🌱 Currently levelling up in **Machine Learning** and **Data Engineering**
+- 🎯 Goal: combine analysis and backend skills into a Data Scientist / Data Engineer role
+- 🛠️ I build end-to-end projects: raw data → cleaning → analysis → API → dashboard
+- 💬 Ask me about: SQL, Python, Node.js, REST APIs, dashboards, data cleaning
+- 📫 Reach me through the links at the bottom
 
-</div>
+## 🛠️ Tech Stack
 
-<div align="center">
-  
-### Thanks for visiting!👋
+**Analysis & Visualisation**<br>
+![Excel](https://img.shields.io/badge/Excel-217346?style=flat)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Tableau](https://img.shields.io/badge/Tableau-E97627?style=flat&logo=tableau&logoColor=white)
 
-_Feel free to star ⭐ some repositories if you find them interesting!_
+**Programming & Data Science**<br>
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat&logo=plotly&logoColor=white)
 
-</div>
+**Backend Development**<br>
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=postman&logoColor=white)
+
+**Learning Now 🌱**<br>
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![Apache Spark](https://img.shields.io/badge/Spark-E25A1C?style=flat&logo=apachespark&logoColor=white)
+![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat&logo=apacheairflow&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=flat&logo=googlebigquery&logoColor=white)
+
+**Tools**<br>
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
+
+## 🗺️ My Learning Roadmap
+
+- [x] Excel & data cleaning
+- [x] SQL for analysis
+- [x] Python for data (Pandas, NumPy)
+- [x] Dashboards (Power BI / Tableau)
+- [x] REST APIs with Node.js & Express
+- [x] CI/CD & automation with GitHub Actions
+- [ ] Statistics & A/B testing
+- [ ] Machine Learning with scikit-learn
+- [ ] Data pipelines & ETL (Airflow)
+- [ ] Docker & cloud deployment
+- [ ] Big data (Spark, BigQuery)
+
+<!-- STATS:START -->
+<!-- STATS:END -->
+
+<!-- LANGS:START -->
+<!-- LANGS:END -->
+
+<!-- REPOS:START -->
+<!-- REPOS:END -->
+
+<!-- POSTS:START -->
+<!-- POSTS:END -->
+
+## 📫 Let's Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat)](https://www.linkedin.com/in/iamriturajps)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat)](mailto:riturajps@inoob.in)
+[![Portfolio](https://img.shields.io/badge/Instagram-000000?style=flat)](https://www.instagram.com/riturajps)
+
+<p align="center"><i>Always curious. Always learning. Always shipping. 🔍</i></p>

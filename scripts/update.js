@@ -1,0 +1,210 @@
+import fs from "node:fs";
+import config from "../config.js";
+
+const API = process.env.GITHUB_API_URL || "https://api.github.com";
+const GQL = process.env.GITHUB_GRAPHQL_URL || "https://api.github.com/graphql";
+const TOKEN = process.env.GITHUB_TOKEN || "";
+const USER = config.username || process.env.GITHUB_REPOSITORY_OWNER || process.env.GH_USER;
+const README = "README.md";
+
+if (!USER) {
+  console.error("No username found. Set `username` in config.js.");
+  process.exit(1);
+}
+
+const headers = {
+  "User-Agent": "profile-readme-bot",
+  Accept: "application/vnd.github+json",
+  ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
+};
+
+/* ---------- helpers ---------- */
+async function rest(path) {
+  const res = await fetch(`${API}${path}`, { headers, signal: AbortSignal.timeout(20_000) });
+  if (!res.ok) {
+    const hint = res.status === 403 || res.status === 429 ? " (rate limited? the workflow's token avoids this)" : "";
+    throw new Error(`GitHub API ${res.status} for ${path.split("?")[0]}${hint}`);
+  }
+  return res.json();
+}
+
+const clean = (s, max = 90) => {
+  const t = String(s ?? "").replace(/\s+/g, " ").replace(/</g, "&lt;").replace(/[\[\]]/g, "").trim();
+  return t.length > max ? t.slice(0, max - 1) + "…" : t;
+};
+const num = (n) => Number(n).toLocaleString("en-US");
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const pad = (n) => String(n).padStart(2, "0");
+const dayFmt = (d) => `${pad(d.getUTCDate())} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+
+function setSection(md, name, content) {
+  const s = `<!-- ${name}:START -->`;
+  const e = `<!-- ${name}:END -->`;
+  if (!md.includes(s) || !md.includes(e)) {
+    console.warn(`Marker ${name} not found in README, skipped.`);
+    return md;
+  }
+  return md.replace(new RegExp(`${s}[\\s\\S]*?${e}`), () => `${s}\n${content}\n${e}`);
+}
+
+/* ---------- data ---------- */
+async function getRepos() {
+  const all = [];
+  for (let page = 1; page <= 3; page++) {
+    const batch = await rest(`/users/${USER}/repos?per_page=100&sort=pushed&type=owner&page=${page}`);
+    all.push(...batch);
+    if (batch.length < 100) break;
+  }
+  return all;
+}
+
+async function getLanguages(repos) {
+  const totals = {};
+  const pick = repos.filter((r) => !r.fork && !r.archived).slice(0, 30);
+  await Promise.all(
+    pick.map(async (r) => {
+      try {
+        const langs = await rest(`/repos/${USER}/${r.name}/languages`);
+        for (const [lang, bytes] of Object.entries(langs)) totals[lang] = (totals[lang] ?? 0) + bytes;
+      } catch (e) {
+        console.warn(`Languages skipped for ${r.name}: ${e.message}`);
+      }
+    })
+  );
+  return totals;
+}
+
+// Needs a token. Returns null if unavailable so the rest of the README still updates.
+async function getContributions() {
+  if (!TOKEN) return null;
+  try {
+    const res = await fetch(GQL, {
+      method: "POST",
+      headers: { ...headers, "Content-Type": "application/json" },
+      signal: AbortSignal.timeout(20_000),
+      body: JSON.stringify({
+        query: `query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}`,
+        variables: { login: USER },
+      }),
+    });
+    const json = await res.json();
+    const cal = json?.data?.user?.contributionsCollection?.contributionCalendar;
+    if (!cal) throw new Error(json?.errors?.[0]?.message ?? `HTTP ${res.status}`);
+
+    const days = cal.weeks.flatMap((w) => w.contributionDays).sort((a, b) => a.date.localeCompare(b.date));
+    let longest = 0, run = 0;
+    for (const d of days) {
+      run = d.contributionCount > 0 ? run + 1 : 0;
+      longest = Math.max(longest, run);
+    }
+    let i = days.length - 1;
+    if (i >= 0 && days[i].contributionCount === 0) i--; // today isn't over yet
+    let current = 0;
+    while (i >= 0 && days[i].contributionCount > 0) { current++; i--; }
+    return { total: cal.totalContributions, current, longest };
+  } catch (e) {
+    console.warn(`Contribution data skipped: ${e.message}`);
+    return null;
+  }
+}
+
+async function getPosts() {
+  if (!config.rssFeed) return [];
+  try {
+    const res = await fetch(config.rssFeed, { headers: { "User-Agent": "profile-readme-bot" }, signal: AbortSignal.timeout(20_000) });
+    if (!res.ok) throw new Error(`feed HTTP ${res.status}`);
+    const xml = await res.text();
+    const decode = (s) =>
+      s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&amp;/g, "&").trim();
+    return [...xml.matchAll(/<(item|entry)[\s>][\s\S]*?<\/\1>/g)]
+      .slice(0, config.rssPosts)
+      .map((m) => {
+        const b = m[0];
+        const title = decode(b.match(/<title[^>]*>([\s\S]*?)<\/title>/)?.[1] ?? "");
+        const link = decode(b.match(/<link[^>]*href="([^"]+)"/)?.[1] ?? b.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? "");
+        const raw = b.match(/<(?:pubDate|published|updated)>([\s\S]*?)</)?.[1];
+        const date = raw && !Number.isNaN(Date.parse(raw)) ? dayFmt(new Date(raw)) : "";
+        return { title, link, date };
+      })
+      .filter((p) => p.title && p.link);
+  } catch (e) {
+    console.warn(`Posts skipped: ${e.message}`);
+    return [];
+  }
+}
+
+/* ---------- build sections ---------- */
+const [profile, repos] = await Promise.all([rest(`/users/${USER}`), getRepos()]);
+const own = repos.filter((r) => !r.fork && !config.hideRepos.includes(r.name));
+const [langTotals, contrib, posts] = await Promise.all([
+  getLanguages(own),
+  getContributions(),
+  getPosts(),
+]);
+
+// Stats
+const stars = own.reduce((n, r) => n + r.stargazers_count, 0);
+const forks = own.reduce((n, r) => n + r.forks_count, 0);
+const now = new Date();
+const stamp = `${dayFmt(now)}, ${pad(now.getUTCHours())}:${pad(now.getUTCMinutes())} UTC`;
+const stats = [
+  "## 📊 GitHub Stats",
+  "",
+  `- 📦 **${num(profile.public_repos)}** public repos`,
+  `- ⭐ **${num(stars)}** stars earned`,
+  `- 🍴 **${num(forks)}** forks`,
+  `- 👥 **${num(profile.followers)}** followers`,
+];
+if (contrib) {
+  stats.push(
+    `- 📈 **${num(contrib.total)}** contributions in the last year`,
+    `- 🔥 **${contrib.current}** day streak (longest **${contrib.longest}**)`
+  );
+}
+stats.push("", `<sub>Updated ${stamp}</sub>`);
+
+// Languages
+const BAR = 15;
+const langs = Object.entries(langTotals)
+  .filter(([l]) => !config.hideLanguages.includes(l))
+  .sort((a, b) => b[1] - a[1]);
+const langSum = langs.reduce((n, [, b]) => n + b, 0);
+let langSection = "";
+if (langSum > 0) {
+  const top = langs.slice(0, config.languages).map(([l, b]) => [l.slice(0, 12), (b / langSum) * 100]);
+  const w = Math.max(...top.map(([l]) => l.length));
+  const lines = top.map(([l, p]) => {
+    const n = Math.max(p > 0 ? 1 : 0, Math.round((p / 100) * BAR));
+    return `${l.padEnd(w)}  ${"█".repeat(n)}${"░".repeat(BAR - n)}  ${p.toFixed(1).padStart(5)}%`;
+  });
+  langSection = ["## 💻 Top Languages", "", "```text", ...lines, "```"].join("\n");
+}
+
+// Recent projects (skips the profile repo itself)
+const recent = own
+  .filter((r) => !r.archived && r.name.toLowerCase() !== USER.toLowerCase())
+  .slice(0, config.recentRepos);
+let repoSection = "";
+if (recent.length) {
+  const items = recent.map((r) => {
+    const meta = [r.stargazers_count ? `⭐ ${r.stargazers_count}` : "", r.language ?? ""].filter(Boolean).join(" · ");
+    const desc = r.description ? `<br>${clean(r.description)}` : "";
+    return `- **[${r.name}](${r.html_url})**${meta ? " · " + meta : ""}${desc}`;
+  });
+  repoSection = ["## 🚀 Recently Updated", "", ...items].join("\n");
+}
+
+// Posts
+const postSection = posts.length
+  ? ["## ✍️ Latest Posts", "", ...posts.map((p) => `- [${clean(p.title, 80)}](${p.link})${p.date ? ` · ${p.date}` : ""}`)].join("\n")
+  : "";
+
+/* ---------- write README ---------- */
+let md = fs.readFileSync(README, "utf8");
+md = setSection(md, "STATS", stats.join("\n"));
+md = setSection(md, "LANGS", langSection);
+md = setSection(md, "REPOS", repoSection);
+md = setSection(md, "POSTS", postSection);
+fs.writeFileSync(README, md);
+console.log(`Updated README for ${USER}: ${own.length} repos, ${langs.length} languages, streak ${contrib ? "ok" : "n/a"}, ${posts.length} posts`);
