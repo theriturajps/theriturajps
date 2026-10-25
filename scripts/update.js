@@ -228,41 +228,136 @@ async function getFeed() {
 }
 
 /* ---------- contribution heatmap (text, mobile friendly) ---------- */
+/* ---------- colorful contribution heatmap ---------- */
+
 function buildActivity(c) {
   if (!c?.days?.length || c.total === 0) return "";
+
   const N = config.heatmapWeeks ?? 12;
   const weeks = c.weeks.slice(-N);
-  const counts = weeks.flatMap((w) => w.contributionDays.map((d) => d.contributionCount));
-  const max = Math.max(1, ...counts);
-  const LEVELS = ["·", "░", "▒", "▓", "█"];
-  const level = (n) => (n === 0 ? 0 : Math.min(4, Math.ceil((n / max) * 4)));
-  const short = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const full = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  const rows = short.map((name, wd) => {
-    const cells = weeks.map((w) => {
-      const d = w.contributionDays.find((x) => x.weekday === wd);
-      return d ? LEVELS[level(d.contributionCount)] : " ";
+  // Color palette
+  const COLORS = [
+    "#161B22", // Level 0: No contributions
+    "#00BFFF", // Level 1: Blue
+    "#8A2BE2", // Level 2: Purple
+    "#FF1493", // Level 3: Pink
+    "#FF8C00", // Level 4: Orange
+  ];
+
+  const CELL = 12;
+  const GAP = 4;
+  const STEP = CELL + GAP;
+  const LEFT = 34;
+  const TOP = 30;
+
+  const width = LEFT + weeks.length * STEP + 12;
+  const height = TOP + 7 * STEP + 30;
+
+  const counts = weeks.flatMap((week) =>
+    week.contributionDays.map((day) => day.contributionCount)
+  );
+
+  const max = Math.max(1, ...counts);
+
+  const getLevel = (count) => count === 0 ? 0 : Math.min(4, Math.ceil((count / max) * 4));
+
+  const escapeXML = (value) =>
+    String(value).replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&apos;",
+    })[char]);
+
+  const shortDays = [
+    "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",
+  ];
+
+  const monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  ];
+
+  const cells = [];
+  const monthLabels = [];
+  const seenMonths = new Set();
+
+  weeks.forEach((week, column) => {
+    const x = LEFT + column * STEP;
+
+    const firstDay = week.contributionDays[0];
+
+    if (firstDay) {
+      const date = new Date(`${firstDay.date}T00:00:00Z`);
+
+      const monthKey = `${date.getUTCFullYear()}-${date.getUTCMonth()}`;
+
+      if (!seenMonths.has(monthKey)) {
+        seenMonths.add(monthKey);
+
+        monthLabels.push(`<text x="${x}" y="17" fill="#9CA3AF" font-size="10">${monthNames[date.getUTCMonth()]}</text>`);
+      }
+    }
+
+    week.contributionDays.forEach((day) => {
+      const y = TOP + day.weekday * STEP;
+      const color = COLORS[getLevel(day.contributionCount)];
+
+      cells.push(`
+        <rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="3" fill="${color}">
+          <title>${escapeXML(day.contributionCount)} contributions on ${escapeXML(day.date)}</title>
+        </rect>
+      `);
     });
-    return `${name}  ${cells.join(" ")}`.trimEnd();
   });
 
+  const dayLabels = shortDays.map((day, index) => {
+    if (index % 2 !== 0) return "";
+    return `<text x="0" y="${TOP + index * STEP + 9}" fill="#9CA3AF" font-size="10">${day}</text>`;
+  }).join("");
+
+  const legend = COLORS.map((color, index) => `<rect x="${LEFT + index * STEP}" y="${height - 17}" width="10" height="10" rx="3" fill="${color}"/>`).join("");
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+      <rect width="100%" height="100%" rx="10" fill="#0D1117"/>
+
+      ${monthLabels.join("")}
+      ${dayLabels}
+      ${cells.join("")}
+      ${legend}
+
+      <text x="${LEFT + COLORS.length * STEP + 4}" y="${height - 9}" fill="#9CA3AF" font-size="10">More</text>
+    </svg>
+  `.trim();
+
+  // Generate the SVG file in the repository
+  fs.writeFileSync("activity-heatmap.svg", svg, "utf8");
+
+  // Calculate activity statistics
   const byDay = Array(7).fill(0);
-  for (const d of c.days) byDay[d.weekday] += d.contributionCount;
+
+  for (const day of c.days) {
+    byDay[day.weekday] += day.contributionCount;
+  }
+
   const topDay = byDay.indexOf(Math.max(...byDay));
-  const best = c.days.reduce((a, b) => (b.contributionCount > a.contributionCount ? b : a), c.days[0]);
+
+  const best = c.days.reduce(
+    (a, b) =>
+      b.contributionCount > a.contributionCount ? b : a,
+    c.days[0]
+  );
 
   return [
-    `## 📅 Activity (last ${weeks.length} weeks)`,
+    `## Activity Heatmap`,
     "",
-    "```text",
-    ...rows,
+    `![Colorful GitHub Contribution Heatmap](./activity-heatmap.svg)`,
     "",
-    `Less ${LEVELS.join(" ")} More`,
-    "```",
-    "",
-    `- 🗓️ Most active day: **${full[topDay]}**`,
-    `- 💥 Best day: **${best.contributionCount}** contributions on ${dayFmt(new Date(best.date))}`,
+    `- Most active day: **${shortDays[topDay]}**`,
+    `- Best day: **${best.contributionCount} contributions** on ${dayFmt(new Date(best.date))}`,
   ].join("\n");
 }
 
@@ -301,9 +396,7 @@ stats.push("", `<sub>Updated ${stamp}</sub>`);
 
 // Languages
 const BAR = 15;
-const langs = Object.entries(langTotals)
-  .filter(([l]) => !config.hideLanguages.includes(l))
-  .sort((a, b) => b[1] - a[1]);
+const langs = Object.entries(langTotals).filter(([l]) => !config.hideLanguages.includes(l)).sort((a, b) => b[1] - a[1]);
 const langSum = langs.reduce((n, [, b]) => n + b, 0);
 let langSection = "";
 if (langSum > 0) {
@@ -317,9 +410,7 @@ if (langSum > 0) {
 }
 
 // Recent projects (skips the profile repo itself)
-const recent = own
-  .filter((r) => !r.archived && r.name.toLowerCase() !== USER.toLowerCase())
-  .slice(0, config.recentRepos);
+const recent = own.filter((r) => !r.archived && r.name.toLowerCase() !== USER.toLowerCase()).slice(0, config.recentRepos);
 let repoSection = "";
 if (recent.length) {
   const items = recent.map((r) => {
@@ -334,9 +425,7 @@ if (recent.length) {
 const feedSection = feed.length ? ["## ⚡ Recent Activity", "", ...feed].join("\n") : "";
 
 // Posts
-const postSection = posts.length
-  ? ["## ✍️ Latest Posts", "", ...posts.map((p) => `- [${clean(p.title, 80)}](${p.link})${p.date ? ` · ${p.date}` : ""}`)].join("\n")
-  : "";
+const postSection = posts.length ? ["## ✍️ Latest Posts", "", ...posts.map((p) => `- [${clean(p.title, 80)}](${p.link})${p.date ? ` · ${p.date}` : ""}`)].join("\n") : "";
 
 /* ---------- write README ---------- */
 let md = fs.readFileSync(README, "utf8");
