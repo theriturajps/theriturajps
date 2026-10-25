@@ -68,15 +68,43 @@
 - [ ] Big data (Spark, BigQuery)
 
 <!-- STATS:START -->
+## 📊 GitHub Stats
+
+- 📦 **184** public repos
+- ⭐ **176** stars earned
+- 🍴 **83** forks
+- 👥 **45** followers
+- 📈 **6,697** contributions in the last year
+- 🔥 **365** day streak (longest **365**)
+
+<sub>Updated 25 Oct 2026, 04:18 UTC</sub>
 <!-- STATS:END -->
 
 <!-- LANGS:START -->
+## 💻 Top Languages
+
+```text
+Batchfile   ████░░░░░░░░░░░   26.3%
+JavaScript  ████░░░░░░░░░░░   25.0%
+HTML        ███░░░░░░░░░░░░   20.2%
+CSS         █░░░░░░░░░░░░░░    9.8%
+Python      █░░░░░░░░░░░░░░    7.1%
+Astro       █░░░░░░░░░░░░░░    3.9%
+```
 <!-- LANGS:END -->
 
 <!-- REPOS:START -->
+## 🚀 Recently Updated
+
+- **[proxy-list](https://github.com/theriturajps/proxy-list)** · ⭐ 13 · Python<br>Automatically updated repository of free public proxies. Hourly refreshed HTTP/HTTPS prox…
+- **[uptime-pinger](https://github.com/theriturajps/uptime-pinger)** · JavaScript<br>Free uptime monitor using GitHub Actions. Pings endpoints on custom schedules and shows l…
+- **[MS-Office-2022](https://github.com/theriturajps/MS-Office-2022)** · Batchfile
+- **[Cloudflare-Tunnel](https://github.com/theriturajps/Cloudflare-Tunnel)**<br>Access your localhost from anywhere in the world using Cloudflare Tunnel — no port forwar…
+- **[private-chat](https://github.com/theriturajps/private-chat)** · ⭐ 1 · HTML
 <!-- REPOS:END -->
 
 <!-- POSTS:START -->
+
 <!-- POSTS:END -->
 
 ## 📫 Let's Connect
