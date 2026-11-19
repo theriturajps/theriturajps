@@ -57,16 +57,16 @@
 <!-- STATS:START -->
 ## 📊 GitHub Stats
 
-- 📦 **184** public repos
+- 📦 **185** public repos
 - ⭐ **177** stars earned
 - 🍴 **81** forks
 - 👥 **44** followers
 - 🗓️ On GitHub since **2022**
-- 📈 **6,359** contributions in the last year
-- 🔨 **5,728** commits · **0** PRs · **0** issues · **0** reviews
+- 📈 **6,369** contributions in the last year
+- 🔨 **5,732** commits · **0** PRs · **0** issues · **0** reviews
 - 🔥 **369** day streak (longest **369**)
 
-<sub>Updated 19 Nov 2026, 07:30 UTC</sub>
+<sub>Updated 19 Nov 2026, 20:40 UTC</sub>
 <!-- STATS:END -->
 
 <!-- ACTIVITY:START -->
@@ -88,16 +88,16 @@
 ## 🚀 Recently Updated
 
 - **[proxy-list](https://github.com/theriturajps/proxy-list)** · ⭐ 13 · Python<br>Automatically updated repository of free public proxies. Hourly refreshed HTTP/HTTPS prox…
+- **[Data-Analyst-Data-Engineer-Resource-Guide](https://github.com/theriturajps/Data-Analyst-Data-Engineer-Resource-Guide)**<br>A curated list of sites for mock data, datasets, practice platforms, courses, and portfol…
 - **[uptime-pinger](https://github.com/theriturajps/uptime-pinger)** · JavaScript<br>Free uptime monitor using GitHub Actions. Pings endpoints on custom schedules and shows l…
 - **[MS-Office-2022](https://github.com/theriturajps/MS-Office-2022)** · Batchfile
 - **[Cloudflare-Tunnel](https://github.com/theriturajps/Cloudflare-Tunnel)**<br>Access your localhost from anywhere in the world using Cloudflare Tunnel — no port forwar…
-- **[private-chat](https://github.com/theriturajps/private-chat)** · ⭐ 1 · HTML
 <!-- REPOS:END -->
 
 <!-- FEED:START -->
 ## ⚡ Recent Activity
 
-- ⭐ Starred [lukebarousse/SQL_Project_Data_Job_Analysis](https://github.com/lukebarousse/SQL_Project_Data_Job_Analysis) · 5 days ago
+- ⭐ Starred [lukebarousse/SQL_Project_Data_Job_Analysis](https://github.com/lukebarousse/SQL_Project_Data_Job_Analysis) · 6 days ago
 <!-- FEED:END -->
 
 <!-- POSTS:START -->
